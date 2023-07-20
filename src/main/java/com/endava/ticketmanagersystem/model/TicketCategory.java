@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "TicketCategory")
@@ -15,6 +16,9 @@ public class TicketCategory implements Serializable {
     @ManyToOne
     @JoinColumn(name = "eventID")
     private Event event;
+
+    @OneToMany(mappedBy = "TicketCategory",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Orders> ordersList;
 
     @Column(name = "description")
     private String description;
@@ -42,7 +46,8 @@ public class TicketCategory implements Serializable {
 
     //constructor
 
-    public TicketCategory() {
+    public TicketCategory(List<Orders> ordersList) {
+        this.ordersList = ordersList;
     }
 
     public TicketCategory(int ticketCategoryID, String description, BigDecimal price) {

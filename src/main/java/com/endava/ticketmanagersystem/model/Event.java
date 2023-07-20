@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Event")
@@ -20,6 +21,9 @@ public class Event implements Serializable {
     @JoinColumn(name = "EventTypeID")
     private EventType eventType;
 
+    @OneToMany(mappedBy = "Event",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<TicketCategory> ticketCategoryList;
+
     @Column(name = "EventDescription")
     private String EventDescription;
 
@@ -34,6 +38,15 @@ public class Event implements Serializable {
     private Date EndDate;
 
     //getteri+setteri
+
+
+    public List<TicketCategory> getTicketCategoryList() {
+        return ticketCategoryList;
+    }
+
+    public void setTicketCategoryList(List<TicketCategory> ticketCategoryList) {
+        this.ticketCategoryList = ticketCategoryList;
+    }
 
     public String getEventDescription() {
         return EventDescription;
@@ -73,8 +86,11 @@ public class Event implements Serializable {
     public Event() {
     }
 
-    public Event(int eventID, String eventDescription, String eventName, Date startDate, Date endDate) {
+    public Event(int eventID, Venue venue, EventType eventType, List<TicketCategory> ticketCategoryList, String eventDescription, String eventName, Date startDate, Date endDate) {
         EventID = eventID;
+        this.venue = venue;
+        this.eventType = eventType;
+        this.ticketCategoryList = ticketCategoryList;
         EventDescription = eventDescription;
         EventName = eventName;
         StartDate = startDate;

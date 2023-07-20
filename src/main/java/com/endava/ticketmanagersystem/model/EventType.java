@@ -14,9 +14,6 @@ public class EventType implements Serializable {
     @Column(name = "EventTypeName")
     public String EventTypeName;
 
-    @OneToMany
-    @JoinColumn(name = "EventType")
-    private Event event;
 
     //getteri+setteri
 
