@@ -15,6 +15,17 @@ public class Customer implements Serializable {
     @Column(name="Email")
     private String Email;
 
+
+    //Constructors
+    public Customer(){}
+
+    public Customer(int customerID, String customerName, String email) {
+        CustomerID=customerID;
+        CustomerName=customerName;
+        Email=email;
+    }
+
+
 //getteri+setteri
    public String getCustomerName(String CustomerName){
        return CustomerName;
@@ -31,12 +42,4 @@ public class Customer implements Serializable {
        this.Email = Email;
    }
 
-   //Constructors
-    public Customer(){}
-
-    public Customer(int customerID, String customerName, String email) {
-   CustomerID=customerID;
-   CustomerName=customerName;
-   Email=email;
-   }
 }

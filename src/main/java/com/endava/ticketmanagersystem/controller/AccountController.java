@@ -1,7 +1,5 @@
 package com.endava.ticketmanagersystem.controller;
 
-import com.endava.ticketmanagersystem.model.Account;
-import com.endava.ticketmanagersystem.service.AccountService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
