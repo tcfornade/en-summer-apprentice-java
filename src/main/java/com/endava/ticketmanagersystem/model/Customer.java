@@ -1,7 +1,5 @@
 package com.endava.ticketmanagersystem.model;
-
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 
 @Entity
@@ -12,7 +10,7 @@ public class Customer implements Serializable {
     private int CustomerID;
     @Column(name="CustomerName")
     private String CustomerName;
-    @Column(name="Email")
+    @Column(name="Email", unique = true)
     private String Email;
 
 
@@ -27,6 +25,14 @@ public class Customer implements Serializable {
 
 
 //getteri+setteri
+
+    public int getCustomerID(){
+        return CustomerID;
+    }
+
+    public void setCustomerID(int customerId){
+        this.CustomerID=customerId;
+    }
    public String getCustomerName(String CustomerName){
        return CustomerName;
    }
@@ -41,5 +47,14 @@ public class Customer implements Serializable {
     public void setEmail(String Email){
        this.Email = Email;
    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerID=" + CustomerID +
+                ", email='" + Email + '\'' +
+                ", name='" + CustomerName + '\'' +
+                '}';
+    }
 
 }

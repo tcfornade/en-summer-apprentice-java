@@ -47,7 +47,14 @@ public class Venue implements Serializable {
         Capacity = capacity;
     }
 
-    //constructor
+    public int getVenueID() {
+        return VenueID;
+    }
+
+    public void setVenueID(int venueID) {
+        VenueID = venueID;
+    }
+//constructor
 
     public Venue() {
     }
@@ -57,5 +64,15 @@ public class Venue implements Serializable {
         Location = location;
         Type = type;
         Capacity = capacity;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "locationID=" + VenueID +
+                ", location='" + Location + '\'' +
+                ", type='" + Type + '\'' +
+                ", capacity=" + Capacity +
+                '}';
     }
 }

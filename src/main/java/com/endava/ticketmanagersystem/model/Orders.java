@@ -33,6 +33,15 @@ public class Orders implements Serializable {
 
 
     //getteri + setteri
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
+    }
+
     public Date getOrderedAt() {
         return OrderedAt;
     }
@@ -55,6 +64,23 @@ public class Orders implements Serializable {
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public TicketCategory getTicketCategory() {
+        return ticketCategory;
+    }
+
+    public void setTicketCategory(TicketCategory ticketCategory) {
+        this.ticketCategory = ticketCategory;
+    }
+
 
     public Orders() {
     }

@@ -17,6 +17,14 @@ public class EventType implements Serializable {
 
     //getteri+setteri
 
+    public int getEventTypeID() {
+        return EventTypeID;
+    }
+
+    public void setEventTypeID(int eventTypeID) {
+        EventTypeID = eventTypeID;
+    }
+
     public String getEventTypeName() {
         return EventTypeName;
     }
@@ -33,5 +41,13 @@ public class EventType implements Serializable {
     public EventType(int eventTypeID, String eventTypeName) {
         EventTypeID = eventTypeID;
         EventTypeName = eventTypeName;
+    }
+
+    @Override
+    public String toString() {
+        return "EventType{" +
+                "eventTypeID=" + EventTypeID +
+                ", name='" + EventTypeName + '\'' +
+                '}';
     }
 }

@@ -17,16 +17,34 @@ public class TicketCategory implements Serializable {
     @JoinColumn(name = "eventID")
     private Event event;
 
-    @OneToMany(mappedBy = "TicketCategory",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Orders> ordersList;
-
     @Column(name = "description")
     private String description;
 
     @Column(name = "price")
     private BigDecimal price;
 
+    public TicketCategory() {
+
+    }
+
     //getteri+setteri
+
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public int getTicketCategoryID() {
+        return ticketCategoryID;
+    }
+
+    public void setTicketCategoryID(int ticketCategoryID) {
+        this.ticketCategoryID = ticketCategoryID;
+    }
 
     public String getDescription() {
         return description;
@@ -46,13 +64,19 @@ public class TicketCategory implements Serializable {
 
     //constructor
 
-    public TicketCategory(List<Orders> ordersList) {
-        this.ordersList = ordersList;
-    }
-
     public TicketCategory(int ticketCategoryID, String description, BigDecimal price) {
         this.ticketCategoryID = ticketCategoryID;
         this.description = description;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "TicketCategory{" +
+                "ticketCategoryID=" + ticketCategoryID +
+                ", event=" + event +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

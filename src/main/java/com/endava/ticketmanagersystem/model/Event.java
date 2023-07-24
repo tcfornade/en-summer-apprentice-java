@@ -21,8 +21,6 @@ public class Event implements Serializable {
     @JoinColumn(name = "EventTypeID")
     private EventType eventType;
 
-    @OneToMany(mappedBy = "Event",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<TicketCategory> ticketCategoryList;
 
     @Column(name = "EventDescription")
     private String EventDescription;
@@ -39,13 +37,28 @@ public class Event implements Serializable {
 
     //getteri+setteri
 
-
-    public List<TicketCategory> getTicketCategoryList() {
-        return ticketCategoryList;
+    public int getEventID() {
+        return EventID;
     }
 
-    public void setTicketCategoryList(List<TicketCategory> ticketCategoryList) {
-        this.ticketCategoryList = ticketCategoryList;
+    public void setEventID(int eventID) {
+        EventID = eventID;
+    }
+
+    public Venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+        this.venue = venue;
+    }
+
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
     }
 
     public String getEventDescription() {
@@ -80,6 +93,8 @@ public class Event implements Serializable {
         EndDate = endDate;
     }
 
+
+
     //constructor
 
 
@@ -90,10 +105,22 @@ public class Event implements Serializable {
         EventID = eventID;
         this.venue = venue;
         this.eventType = eventType;
-        this.ticketCategoryList = ticketCategoryList;
         EventDescription = eventDescription;
         EventName = eventName;
         StartDate = startDate;
         EndDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventID=" + EventID +
+                ", eventType=" + eventType +
+                ", name='" + EventName + '\'' +
+                ", description='" + EventDescription + '\'' +
+                ", startDate=" + StartDate +
+                ", endDate=" + EndDate +
+                //      ", ticketCategories=" + ticketCategories +
+                '}';
     }
 }
